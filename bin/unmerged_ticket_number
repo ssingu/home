@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "[INFO] Pull newest commits of master/stable..."
+git checkout master
+git pull -f origin master:master
+git checkout stable
+git pull -f origin stable:stable
+git checkout master
+
+echo "[INFO] Retrive ticket number (e.g. 11111) from commit log..."
+git log master | head -n 10000 | egrep '^\ *[0-9]+$' | uniq > /tmp/ticket_number_of_master
+git log stable | head -n 10000 | egrep '^\ *[0-9]+$' | uniq > /tmp/ticket_number_of_stable
+
+echo "[INFO] Show unmerged ticket number..."
+egrep -v -f /tmp/ticket_number_of_stable /tmp/ticket_number_of_master > /tmp/unmerged_ticket_number
+git log master | head -n 10000 | grep -f /tmp/unmerged_ticket_number -B 6
+

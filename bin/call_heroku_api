@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+usage_exit()
+{
+  cat <<-EOF 1>&2
+    Usage: ${CMDNAME} <method> <path>
+    Example: ${CMDNAME} GET /account
+EOF
+  exit 1
+}
+
+CMDNAME=$(basename $0)
+DIRNAME=$(dirname $0)
+
+if [ 2 -ne $# ] ; then
+  usage_exit
+fi
+
+method=$1
+path=$2
+
+
+API_KEY_BASE64=$((echo -n ":" ; heroku auth:token) | base64)
+curl -s \
+     -X ${method} https://api.heroku.com/${path} \
+     -H "Accept: application/vnd.heroku+json; version=3" \
+     -H "Authorization: ${API_KEY_BASE64}"
