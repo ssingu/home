@@ -43,6 +43,10 @@ for src in `ls` `ls -d private/*`; do
   pae ln -s -f ${PWD}/${src} ${dst}
 done
 
+if ! $(which brew > /dev/null); then
+    pae 'ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"'
+fi
+
 BREW_PACKAGES="\
 cmigemo \
 markdown \
