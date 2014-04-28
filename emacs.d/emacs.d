@@ -1,1 +1,0 @@
-/Users/sumiesta/Dropbox/home/emacs.d
