@@ -16,7 +16,9 @@ ignore_file?() {
 }
 
 backup_and_remove() {
-  if [ -e $1 -a ! -L $1 ]; then
+  if [ -L $1 ]; then
+    pae unlink $1
+  elif [ -e $1 ]; then
     pae mv $1 /tmp/$(basename $1).$(date +%Y%m%d)
   fi
 }
