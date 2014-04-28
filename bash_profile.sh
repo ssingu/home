@@ -1,4 +1,8 @@
+# load private common settings
 source ~/.private_bash_profile
+
+# load machine local settings
+source ~/.custom_bash_profile
 
 export PATH=~/bin:${PATH}
 export PATH=~/private_bin:${PATH}
