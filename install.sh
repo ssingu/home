@@ -30,11 +30,6 @@ cd $(dirname ${BASH_SOURCE})
 
 for src in `ls` `ls -d private/*`; do
   if ignore_file? ${src} ; then continue; fi
-#  dst=~/.$(basename ${src})
-#  if [ ${src} = bash_profile.sh ]; then dst=~/.bash_profile; fi
-#  if expr ${dst} : ".*bin" > /dev/null; then dst=${dst/./}; fi
-#  backup_and_remove ${dst}
-#  pae ln -s -f ${PWD}/${src} ${dst}
   name=$(basename ${src})
   case $name in
     *bin)             dst=~/${name};;
@@ -52,13 +47,35 @@ fi
 BREW_PACKAGES="\
 cmigemo \
 markdown \
+rbenv \
+ruby-build \
+postgresql \
+imagemagick \
 "
 pae brew install ${BREW_PACKAGES}
 
+if [ ! -e /Applications/Emacs.app ]; then
+    pae brew install emacs --cocoa
+    pae ln -s $(find /usr/local/Cellar/emacs/ -name Emacs.app) /Applications
+fi
 
 if ! $(ls ~/Library/Fonts/Ricty* > /dev/null 2>&1); then
   pae cp -f private/fonts/Ricty*.ttf ~/Library/Fonts/
   pae fc-cache -vf
+fi
+
+if $(rbenv version | grep system > /dev/null); then
+  ruby_version=1.9.3-p448
+  pae rbenv install ${ruby_version}
+  pae rbenv global ${ruby_version}
+  pae gem install bundler
+  pae rbenv rehash
+fi
+
+if ! $(ls ~/Library/LaunchAgents/ | grep postgresql > /dev/null); then
+  pae ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+  pae launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+  pae reateuser -d postgres
 fi
 ############################  main routine
 
