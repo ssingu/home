@@ -2,7 +2,9 @@
 source ~/.private_bash_profile
 
 # load machine local settings
-source ~/.custom_bash_profile
+if [ -f ~/.custom_bash_profile ]; then
+  source ~/.custom_bash_profile
+fi
 
 export PATH=~/bin:${PATH}
 export PATH=~/private_bin:${PATH}
