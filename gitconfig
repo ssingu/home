@@ -1,0 +1,13 @@
+[include]
+    path = .gitconfig.private
+    path = .gitconfig.local
+
+[core]
+    whitespace = trailing-space
+    editor = vi
+
+[push]
+    default = current
+
+[color]
+    ui = auto

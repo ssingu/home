@@ -33,7 +33,7 @@ for src in `ls` `ls -d private/*`; do
   name=$(basename ${src})
   case $name in
     *bin)             dst=~/${name};;
-    *bash_profile.sh) dst=~/.${name/.sh/};;
+    bash_profile*.sh) dst=~/.${name/.sh/};;
     *)                dst=~/.${name};;
   esac
   backup_and_remove ${dst}

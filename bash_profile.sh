@@ -1,9 +1,7 @@
-# load private common settings
-source ~/.private_bash_profile
+source ~/.bash_profile.private
 
-# load machine local settings
-if [ -f ~/.custom_bash_profile ]; then
-  source ~/.custom_bash_profile
+if [ -f ~/.bash_profile.local ]; then
+  source ~/.bash_profile.local
 fi
 
 export PATH=~/bin:${PATH}
