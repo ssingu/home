@@ -8,7 +8,7 @@ pae() {
 }
 
 ignore_file?() {
-  ignore_files=(README.md install.sh fonts private com.googlecode.iterm2.plist)
+  ignore_files=(README.md install.sh fonts private)
   for ignore_file in ${ignore_files[@]}; do
     if [ ${ignore_file} = $(basename $1) ]; then return 0; fi
   done
@@ -51,6 +51,7 @@ rbenv \
 ruby-build \
 postgresql \
 imagemagick \
+tmux \
 "
 pae brew install ${BREW_PACKAGES}
 
@@ -75,13 +76,7 @@ fi
 if ! $(ls ~/Library/LaunchAgents/ | grep postgresql > /dev/null); then
   pae ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
   pae launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-  pae reateuser -d postgres
-fi
-
-iterm2_conf=~/Library/Preferences/com.googlecode.iterm2.plist
-if [ ! -L ${iterm2_conf} ]; then
-  backup_and_remove ${iterm2_conf}
-  pae ln -s ${PWD}/com.googlecode.iterm2.plist ${iterm2_conf}
+  pae createuser -d postgres
 fi
 ############################  main routine
 
