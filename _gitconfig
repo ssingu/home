@@ -1,3 +1,7 @@
+[user]
+    name = Sumio Singu
+    email = sumio.singu@access-company.com
+
 [include]
     path = .gitconfig.private
     path = .gitconfig.local
@@ -11,3 +15,60 @@
 
 [color]
     ui = auto
+
+[alias]
+    s     = status
+    a     = add
+    r     = rm
+    mv    = mv
+    f     = fetch
+    t     = tag
+    d     = diff
+    cp    = cherry-pick
+
+    pl    = pull
+    plf   = pull -f
+
+    ps    = push
+    ps    = push -f
+
+    b     = branch
+    bd    = branch -d
+
+    co    = checkout
+    cob   = checkout -b
+    com   = checkout master
+    cos   = checkout stable
+
+    l     = log
+    lm    = log master
+    ls    = log stable
+    llr   = log --oneline --left-right
+    llrms = log --oneline --left-right master...stable
+
+    rs    = reset
+    rs    = reset --hard
+
+    c     = commit
+    cm    = commit -m
+    ca    = commit --amend
+
+    rb    = rebase
+    rbm   = rebase master
+    rbi   = rebase -i
+    rbc   = rebase --continue
+
+    m     = merge
+    ms    = merge --squash
+
+    cfd   = clean -fd
+
+    si    = submodule init
+    su    = submodule update
+
+    sh    = show
+    sh1   = show HEAD~
+    sh2   = show HEAD~2
+    sh3   = show HEAD~3
+    sh4   = show HEAD~4
+    sh5   = show HEAD~5
