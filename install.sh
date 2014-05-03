@@ -8,7 +8,7 @@ pae() {
 }
 
 ignore_file?() {
-  ignore_files=(README.md install.sh fonts private)
+  ignore_files=(README.md install.sh)
   for ignore_file in ${ignore_files[@]}; do
     if [ ${ignore_file} = $(basename $1) ]; then return 0; fi
   done
@@ -28,14 +28,10 @@ backup_and_remove() {
 ############################  main routine
 cd $(dirname ${BASH_SOURCE})
 
-for src in `ls` `ls -d private/*`; do
+for src in $(ls); do
   if ignore_file? ${src} ; then continue; fi
-  name=$(basename ${src})
-  case $name in
-    *bin)             dst=~/${name};;
-    bash_profile*.sh) dst=~/.${name/.sh/};;
-    *)                dst=~/.${name};;
-  esac
+  dst=~/$(echo ${src} | sed -e "s/^_/./")
+  if [[ ${src} =~ ^_bash_profile.*\.sh$ ]] ; then dst=${dst/.sh/}; fi
   backup_and_remove ${dst}
   pae ln -s -f ${PWD}/${src} ${dst}
 done

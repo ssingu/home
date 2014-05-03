@@ -5,7 +5,7 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 export PATH=~/bin:${PATH}
-export PATH=~/private_bin:${PATH}
+export PATH=~/bin.private:${PATH}
 export PATH=/opt/local/bin:${PATH}
 export PATH=/usr/local/bin:${PATH}
 export PATH=/Developer/android/android-ndk:/Developer/android-sdk-mac_x86/platform-tools:${PATH}

@@ -1,3 +1,5 @@
-private
-emacs.d/elpa
+*.private*
+_emacs.d/elpa
 .DS_Store
+_ssh
+
