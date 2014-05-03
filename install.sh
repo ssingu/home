@@ -52,6 +52,9 @@ ruby-build \
 postgresql \
 imagemagick \
 tmux \
+wget \
+pwgen \
+ricty \
 "
 pae brew install ${BREW_PACKAGES}
 
@@ -60,8 +63,8 @@ if [ ! -e /Applications/Emacs.app ]; then
     pae ln -s $(find /usr/local/Cellar/emacs/ -name Emacs.app) /Applications
 fi
 
-if ! $(ls ~/Library/Fonts/Ricty* > /dev/null 2>&1); then
-  pae cp -f private/fonts/Ricty*.ttf ~/Library/Fonts/
+if ! $(ls ~/Library/Fonts/Ricty* > /dev/null); then
+  pae cp -f /usr/local/Cellar/ricty/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
   pae fc-cache -vf
 fi
 
