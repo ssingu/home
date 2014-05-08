@@ -32,3 +32,6 @@ source ~/.git-prompt.bash
 PS1='\[\033[1;35m\]\t\[\033[1;36m\][\u@\h:\[\033[33m\]\w$(__git_ps1 " (%s)")\[\033[36m\]]\$\[\033[0m\] '
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
+
+
+export DOCKER_HOST=tcp://127.0.0.1:4243

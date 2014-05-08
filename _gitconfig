@@ -33,7 +33,7 @@
     ps    = push -f
 
     b     = branch
-    bd    = branch -d
+    bd    = branch -D
 
     co    = checkout
     cob   = checkout -b
@@ -47,7 +47,7 @@
     llrms = log --oneline --left-right master...stable
 
     rs    = reset
-    rs    = reset --hard
+    rsh   = reset --hard
 
     c     = commit
     cm    = commit -m

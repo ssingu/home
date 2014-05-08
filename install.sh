@@ -51,7 +51,11 @@ tmux \
 wget \
 pwgen \
 ricty \
+boot2docker \
+docker \
 "
+
+brew tap sanemat/font
 pae brew install ${BREW_PACKAGES}
 
 if [ ! -e /Applications/Emacs.app ]; then

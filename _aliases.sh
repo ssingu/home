@@ -32,11 +32,11 @@ a rdd='r db:drop:all'
 a rds='r db:seed'
 a rdfl='r db:fixtures:load'
 
-function bert() {
+function rt() {
   if [ -z $1 ]; then
-    ber test
+    r test
   else
-    ber test:units TEST=$1
+    r test:units TEST=$1
   fi
 }
 
@@ -48,6 +48,4 @@ a rl='bundle exec rails'
 a rlc='rl console'
 a rls='rl server'
 a rld='rl dbconsole'
-
-a pgr='pg_restore --verbose --clean --no-acl --no-owner'
 ################################################ rails
