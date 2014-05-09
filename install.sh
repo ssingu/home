@@ -72,9 +72,16 @@ if $(rbenv version | grep system > /dev/null); then
   ruby_version=1.9.3-p448
   pae rbenv install ${ruby_version}
   pae rbenv global ${ruby_version}
-  pae gem install bundler
   pae rbenv rehash
 fi
+
+GEMS="\
+bundler
+spork
+spork-testunit
+"
+pae gem install ${GEMS}
+pae rbenv rehash
 
 if ! $(ls ~/Library/LaunchAgents/ | grep postgresql > /dev/null); then
   pae ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents

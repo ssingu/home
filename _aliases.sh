@@ -24,7 +24,8 @@ function zipr() {
 
 ################################################ rails
 a bi='bundle install --path vendor/bundle'
-a r='bundle exec rake'
+a be='bundle exec'
+a r='be rake'
 a rdc='r db:create'
 a rdm='r db:migrate'
 a rdr='r db:rollback'
@@ -44,8 +45,17 @@ a rgf='r gettext:find'
 a rgp='r gettext:pack'
 a rjw='r jobs:work'
 
-a rl='bundle exec rails'
+a rl='be rails'
 a rlc='rl console'
 a rls='rl server'
 a rld='rl dbconsole'
+
+a t='testdrb -I test'
+function sp() {
+  old_process=$(pgrep -U `whoami` -f spork)
+  if [ ${old_process} ]; then
+    kill ${old_process}
+  fi
+  be spork &
+}
 ################################################ rails
