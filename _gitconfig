@@ -30,7 +30,7 @@
     plf   = pull -f
 
     ps    = push
-    ps    = push -f
+    psf   = push -f
 
     b     = branch
     bd    = branch -D
