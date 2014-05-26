@@ -62,6 +62,7 @@
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c p") 'picture-mode)
 (global-set-key (kbd "C-c t") 'orgtbl-mode)
+(global-set-key (kbd "C-c g") 'goto-line)
 
 
 ;; GNU global
