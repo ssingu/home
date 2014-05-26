@@ -25,6 +25,8 @@
     t     = tag
     d     = diff
     cp    = cherry-pick
+    cpc    = cherry-pick --continue
+    cpa    = cherry-pick --abort
 
     pl    = pull
     plf   = pull -f
