@@ -17,6 +17,7 @@ a df='df -h'
 a du0='du -h -d 0'
 a du1='du -h -d 1'
 a du2='du -h -d 2'
+a pwgen='pwgen -y -B'
 
 function zipr() {
   zip -vr $1.zip $1 -x "*.DS_Store"
@@ -27,7 +28,7 @@ a bi='bundle install --path vendor/bundle'
 a be='bundle exec'
 a r='be rake'
 a rdc='r db:create'
-a rdm='r db:migrate'
+a rdm='r db:migrate; r db:test:load'
 a rdr='r db:rollback'
 a rdd='r db:drop:all'
 a rds='r db:seed'
@@ -50,7 +51,7 @@ a rlc='rl console'
 a rls='rl server'
 a rld='rl dbconsole'
 
-a t='testdrb -I test'
+a spt='testdrb -I test'
 function sp() {
   old_process=$(pgrep -U `whoami` -f spork)
   if [ ${old_process} ]; then
@@ -59,3 +60,23 @@ function sp() {
   be spork &
 }
 ################################################ rails
+
+
+################################################ tmux
+a t="tmux -2"
+a tl="t ls"
+function ta() {
+  if [ -z $1 ]; then
+    t a
+  else
+    t a -t $1
+  fi
+}
+function tk() {
+  if [ -z $1 ]; then
+    t kill-session
+  else
+    t kill-session -t $1
+  fi
+}
+################################################ tmux
