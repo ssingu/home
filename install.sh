@@ -53,6 +53,7 @@ pwgen \
 ricty \
 boot2docker \
 docker \
+node \
 "
 
 brew tap sanemat/font
