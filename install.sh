@@ -54,6 +54,7 @@ ricty \
 boot2docker \
 docker \
 node \
+git \
 "
 
 brew tap sanemat/font
