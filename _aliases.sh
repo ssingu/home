@@ -64,7 +64,7 @@ function sp() {
 
 
 ################################################ tmux
-a t="tmux -2"
+a t="tmux"
 a tl="t ls"
 function ta() {
   if [ -z $1 ]; then
@@ -79,5 +79,8 @@ function tk() {
   else
     t kill-session -t $1
   fi
+}
+function ssht(){
+  ssh $* -t 'tmux a || tmux || /bin/bash'
 }
 ################################################ tmux
