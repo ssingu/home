@@ -53,11 +53,11 @@ a rld='rl dbconsole'
 
 a spt='testdrb -I test'
 function sp() {
-  old_process=$(pgrep -U `whoami` -f spork)
-  if [ ${old_process} ]; then
-    kill ${old_process}
+  old_spork_pid=$(pgrep -U `whoami` -f spork)
+  if [ -n "${old_spork_pid}" ]; then
+    kill ${old_spork_pid}
   fi
-  be spork &
+  be spork TestUnit &
 }
 ################################################ rails
 
