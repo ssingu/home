@@ -79,7 +79,4 @@ function tk() {
     t kill-session -t $1
   fi
 }
-function ssht(){
-  ssh $* -t 'tmux a || tmux || /bin/bash'
-}
 ################################################ tmux
