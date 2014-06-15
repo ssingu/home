@@ -24,6 +24,8 @@
     f     = fetch
     t     = tag
     d     = diff
+    g     = grep
+    gn    = grep -n
     cp    = cherry-pick
     cpc    = cherry-pick --continue
     cpa    = cherry-pick --abort
