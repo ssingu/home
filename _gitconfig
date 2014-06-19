@@ -24,11 +24,10 @@
     f     = fetch
     t     = tag
     d     = diff
-    g     = grep
-    gn    = grep -n
+    g     = grep -n
     cp    = cherry-pick
-    cpc    = cherry-pick --continue
-    cpa    = cherry-pick --abort
+    cpc   = cherry-pick --continue
+    cpa   = cherry-pick --abort
 
     pl    = pull
     plf   = pull -f
@@ -52,6 +51,8 @@
 
     rs    = reset
     rsh   = reset --hard
+    rshm  = reset --hard origin/master
+    rshs  = reset --hard origin/stable
 
     c     = commit
     cm    = commit -m
@@ -61,6 +62,7 @@
     rbm   = rebase master
     rbi   = rebase -i
     rbc   = rebase --continue
+    rbc   = rebase --abort
 
     m     = merge
     ms    = merge --squash
