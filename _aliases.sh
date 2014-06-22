@@ -1,5 +1,7 @@
 alias a='alias'
 
+source ~/.aliases.private.sh
+
 a g='git'
 a rm='rm -rf'
 a l='ls'
