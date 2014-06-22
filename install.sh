@@ -33,7 +33,7 @@ function create_symlink_of_dotfiles {
   for src in $(ls); do
     if ignore_file? ${src} ; then continue; fi
     dst=~/$(echo ${src} | sed -e "s/^_/./")
-    if [[ ${src} =~ ^_bash_profile.*\.sh$ ]] ; then dst=${dst/.sh/}; fi
+    if [[ ${src} =~ ^_(bash_profile|zshrc).*\.sh$ ]] ; then dst=${dst/.sh/}; fi
     backup_and_remove ${dst}
     execute ln -s -f ${PWD}/${src} ${dst}
   done
@@ -109,6 +109,14 @@ function notify_additional_operation {
     todo "Type 'crontb -e' and add job '0 1 * * * ruby ~/.emacs.d/make-filelist.rb > /tmp/myfiles.filelist' with 'MAILTO=\"\"'. myfiles.filelist is used by anything.el"
   fi
 }
+
+function change_default_shell_to_zsh {
+  if ! [[ $SHELL =~ zsh ]]; then
+    if osx?; then
+      chsh -s /bin/zsh
+    fi
+  fi
+}
 ############################ functions
 
 
@@ -119,5 +127,6 @@ if osx?; then
   install_packages_with_brew
 fi
 install_gems
+change_default_shell_to_zsh
 notify_additional_operation
 ############################ main routine
