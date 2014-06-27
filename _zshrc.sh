@@ -1,6 +1,11 @@
 ## LANG
 export LANG=ja_JP.UTF-8
 
+## Import configuration about local machine
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
 ## Import aliases
 source ~/.aliases.sh
 
