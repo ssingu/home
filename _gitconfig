@@ -62,7 +62,7 @@
     rbm   = rebase master
     rbi   = rebase -i
     rbc   = rebase --continue
-    rbc   = rebase --abort
+    rba   = rebase --abort
 
     m     = merge
     ms    = merge --squash
