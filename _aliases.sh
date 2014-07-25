@@ -61,6 +61,7 @@ function sp() {
   fi
   be spork TestUnit &
 }
+a spk='kill `pgrep -f spork`'
 ################################################ rails
 
 
@@ -82,3 +83,12 @@ function tk() {
   fi
 }
 ################################################ tmux
+
+
+################################################ vagrant
+a v='vagrant'
+a vu='v up'
+a vs='v status'
+a vh='v halt'
+a vd='v destroy'
+################################################ vagrant
