@@ -87,6 +87,12 @@ function install_packages_with_brew {
   fi
 }
 
+function enable_ftp_server_if_osx {
+  if osx?; then
+    sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
+  fi
+}
+
 GEMS="\
 bundler
 spork
