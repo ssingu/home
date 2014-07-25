@@ -85,6 +85,12 @@ function install_packages_with_brew {
     execute launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
     execute createuser -d postgres
   fi
+
+  curl -L https://raw.github.com/hokaccha/nodebrew/master/nodebrew | perl - setup
+  if [ "$(nodebrew list | grep current)" = 'current: none' ]; then
+    nodebrew install stable
+    nodebrew use stable
+  fi
 }
 
 function enable_ftp_server_if_osx {

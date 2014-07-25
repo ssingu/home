@@ -65,6 +65,7 @@ export PATH=~/bin.private:${PATH}
 export PATH=/usr/local/bin:${PATH}
 export PATH=/usr/local/mysql/bin:${PATH}
 export PATH=/usr/local/heroku/bin:${PATH}
+export PATH=~/.nodebrew/current/bin:$PATH
 
 
 ## rbenv configuration
