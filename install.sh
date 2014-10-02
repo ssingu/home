@@ -54,6 +54,7 @@ boot2docker \
 docker \
 node \
 git \
+graphviz \
 "
 function install_packages_with_brew {
   if ! $(which brew > /dev/null); then
