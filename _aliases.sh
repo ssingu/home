@@ -2,7 +2,6 @@ alias a='alias'
 
 source ~/.aliases.private.sh
 
-a g='git'
 a rm='rm -rf'
 a l='ls'
 a ll='l -lh'
@@ -24,6 +23,12 @@ function zipr() {
   zip -vr $1.zip $1 -x "*.DS_Store"
 }
 
+################################################ git
+a g='git'
+function replace_with_() { g grep -l $1 | xargs sed -i '' -e s/$1/$2/g }
+################################################ git
+
+
 ################################################ rails
 a bi='bundle install --path vendor/bundle'
 a be='bundle exec'
@@ -38,7 +43,7 @@ a rdfl='r db:fixtures:load'
 
 function rt() {
   if [ -z $1 ]; then
-    r test
+    r test:all
   else
     r test:units TEST=$1
   fi
