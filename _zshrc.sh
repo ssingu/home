@@ -73,3 +73,6 @@ if [ -d ${HOME}/.rbenv ]; then
   export PATH=${HOME}/.rbenv/bin:${PATH}
   eval "$(rbenv init -)"
 fi
+
+## rvm configuration
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -33,3 +33,6 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 
 
 export DOCKER_HOST=tcp://127.0.0.1:4243
+
+## rvm configuration
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
