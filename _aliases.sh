@@ -25,7 +25,7 @@ function zipr() {
 
 ################################################ git
 a g='git'
-function replace_with_() { g grep -l $1 | xargs sed -i '' -e s/$1/$2/g }
+function replace_string_in_git_repository() { g grep -l $2 $1 | xargs sed -i '' -e s/$2/$3/g }
 ################################################ git
 
 
