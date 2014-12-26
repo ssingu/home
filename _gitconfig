@@ -42,6 +42,8 @@
     cob   = checkout -b
     com   = checkout master
     cos   = checkout stable
+    coo   = checkout --ours
+    cot   = checkout --theirs
 
     l     = log
     lm    = log master
@@ -53,6 +55,8 @@
     rsh   = reset --hard
     rshm  = reset --hard origin/master
     rshs  = reset --hard origin/stable
+    rshum = reset --hard upstream/master
+    rshus = reset --hard upstream/master
 
     c     = commit
     cm    = commit -m
@@ -60,6 +64,7 @@
 
     rb    = rebase
     rbm   = rebase master
+    rbum  = rebase upstream/master
     rbi   = rebase -i
     rbc   = rebase --continue
     rba   = rebase --abort
